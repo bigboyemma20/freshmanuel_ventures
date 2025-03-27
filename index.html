@@ -4,8 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freshmanuel Ventures</title>
-<link rel="stylesheet" href="styles.css">
-<body>
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/8241e206ff.js" crossorigin="anonymous"></script>
+
+    <!-- W3CSS Stylesheet for UI Styling -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
+    <!-- External CSS for additional styling -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts (Montserrat) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        
+    </style>
+</head>
+<body>
+    <!--Navigation bar-->
+        <nav class="navbar ">
+        <div class="logo">Freshmanuel<br>Ventures</div>
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#orderForm">Buy</a></li>
+            <li><a href="">Portfolio</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">&#9776;</div> 
+    </nav>
+
+    <!-- Header Section -->
+    <div class="headerSection w3-container w3-teal">
+        <header>
+            <h1>Obaapa Range of Products</h1>
+        </header>
+    </div>
+
+    <!-- Introduction Section -->
+    <section class="w3-container w3-teal topContainer">
+        <div id="image" class="w3-image">
+            <img src="https://blob.sololearn.com/courses/np.png" alt="Image">
+        </div>
+        <p class="intro">
+            <b>Freshmanuel Ventures</b> produces a range of products under the brand 
+            name <b>Obaapa</b>. The Obaapa range of products are specially formulated 
+            <b>skin-friendly products</b>. Products under the Obaapa brand have been 
+            categorized into three depending on their usage. Below are the various Obaapa products.
+        </p>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section class="w3-container w3-center w3-card-4 categoryContainer">
+        <div class="skinCare">
+            <h3><span>Skin Care</span></h3>
+            <ul>
+                <li>Carrot Shower Gel</li>
+                <li>Lemon Shower Gel</li>
+            </ul>
+        </div>
+        <div class="hairCare">
+            <h3><span>Hair Care</span></h3>
+            <ul>
+                <li>Hair Cream</li>
+                <li>Hair Conditioner</li>
+                <li>Hair Shampoo</li>
+            </ul>
+        </div>
+        <div class="cleaning">
+            <h3><span>Cleaning</span></h3>
+            <ul>
+                <li>Bleach</li>
+                <li>Fabric Softener</li>
+                <li>Liquid Soap</li>
+                <li>Toilet Cleaner</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="formContainer">
+        <h3 class="w3-tag w3-teal w3-padding-large">Order Now</h3>
+        
+        <form id="orderForm">
+            <!-- Product Selection -->
+            <div id="product_qty">
+                <label for="products">Product</label>
+                <select id="products">
+                    <option value="CSG">Carrot Shower Gel</option>
+                    <option value="LSG">Lemon Shower Gel</option>
+                    <option value="HC">Hair Cream</option>
+                    <option value="HS">Hair Shampoo</option>
+                    <option value="HCo">Hair Conditioner</option>
+                    <option value="Bleach">Bleach</option>
+                    <option value="FS">Fabric Softener</option>
+                    <option value="LS">Liquid Soap</option>
+                    <option value="TC">Toilet Cleaner</option>
+                </select>
+
+                <!-- Quantity Selection -->
+                <label for="qty">Qty</label>
+                <input type="number" min="1" value="1" id="qty">
+            </div>
+
+            <!-- Price and Total Calculation -->
+            <div class="addItem">
+                <br>
+                <label for="price">Unit Price</label>
+                <input type="text" id="price" class="w3-opacity" readonly>
+
+                <label for="total">Total (GHS):</label>
+                <input type="text" id="total" placeholder="0.00" class="w3-opacity"readonly>
+                <br><br>
+
+                <!-- Add to Cart Button -->
+                <button type="button" id="addItem" class="w3-hover-opacity w3-button w3-teal w3-round-xxlarge">Add to cart</button>
+            </div>
+
+            <p id="errorMessage" style="color: red; display: none;"></p>
+
+            <!-- Cart Display -->
+            <h3 class="cart"><i class="fa-solid fa-cart-plus"></i><!--Cart--> (<span class="itemsInCart">0</span>)</h3>
+            <table border="1" id="orderTable" class="w3-table w3-striped w3-border">
+                <thead>
+                    <tr>
+                        <th>Products</th>
+                        <th>Quantity</th>
+                        <th>Unit Price (GHS)</th>
+                        <th>Total (GHS)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Items will be dynamically added here -->
+                </tbody>
+            </table>
+
+            <!-- Grand Total Display -->
+            <div class="totalAmount">
+                <h3>Grand Amount (GHS): <span id="grandTotal">0.00</span></h3>
+            </div>
+
+            <br>
+
+            <!-- Customer Details -->
+            <label for="name"><span class="required">*</span>Name:</label>
+            <input type="text" id="name" placeholder="Enter full name" required>
+            <br /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="example@gmail.com">
+            <br><br>
+
+            <label for="telephone"><span class="required">*</span>Phone:</label>
+            <input type="tel" 
+            id="telephone"pattern="\d{10}" maxlength="10"
+            placeholder="1234567890" required>
+            <br><br>
+
+            <!-- Submit Order Button -->
+            <button type="submit" class="w3-hover-opacity w3-button w3-teal w3-round-xxlarge" id="paymentBtn">Make Payment</button>
+        </form>
+    </section>
+
+    <br>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="w3-container w3-teal">
+        Call/WhatsApp: +233(0)248 538 464, +233(0)545 059 105 <br>
+        Email: fresmanuelventures@gmail.com <br><br>
+        <p>Freshmanuel Ventures &copy; 2025</p>
+    </footer>
+
 </body>
 </html>
